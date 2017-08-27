@@ -1,25 +1,29 @@
+
 import React, { Component } from 'react'; 
-import logo from './greyTimes.jpg'; 
+
 import './App.css'; 
 import './Main.js'; 
 
 
 class Results extends Component { 
 
-render() { 
+ 
 
-return (
+  render() {
+    return (
+   
+        
+          <div className= "col-md-5" id="results">
 
-	<div className="d-inline-flex p-6" id="results">
-<h3>Results</h3>
+             <h3>Search Results</h3>
+             
+          </div>
+       
+          
+   
+    );
+  }
+}
 
-   </div>
-
-
-); 
-
-} 
-
-} 
 
 export { Results as default };

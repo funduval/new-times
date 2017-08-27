@@ -1,5 +1,5 @@
 import React, { Component } from 'react'; 
-import logo from './greyTimes.jpg'; 
+ 
 import './App.css'; 
 import Search from './Search.js';
 import Results from './Results.js';
@@ -19,17 +19,18 @@ return (
   
 	   <div className="row"> 
 
-		    <div className="col-md-6">   
+		   
 	       <Search /> 
-	       </div>
+	     
 
-        <div className="col-md-6">
+     
         <Results />
-        </div>
+     
 
        </div>
 
        <div className="row"> 
+       
        <Saved />
 
        </div>

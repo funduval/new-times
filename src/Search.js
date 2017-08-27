@@ -1,35 +1,32 @@
 import React, { Component } from 'react'; 
-import logo from './greyTimes.jpg'; 
+
 import './App.css'; 
 import './Main.js'; 
-import Results from './Results.js';
+import Results from "./Results";
+// import Container from "./Container";
+// import Form from "./Form/Form";
 
 
 class Search extends Component { 
 
+ 
 
-
-
-render() { 
-
-return (
-
-	<div className="d-inline-flex p-6" id="search">
-
+  render() {
+    return (
+     
+       
+          <div className= "col-md-5" id="search">
+            
+          <h3>Search for Articles</h3>
+        
+          </div>
+         
+      
   
-	  {/*this component will need to share the click handler function with each grandchild module*/}
+   
+    );
+  }
+}
 
-<h3>Search</h3>
-
-
-
-</div>
-
-
-); 
-
-} 
-
-} 
 
 export { Search as default };
