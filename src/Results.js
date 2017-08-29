@@ -9,7 +9,8 @@ const Results = props =>
 
     <p>
 
-    Here are the Results: {props.results}
+    Here are the Results: {props.web_url}
+    Link: {props.headline}
 
     </p>
    

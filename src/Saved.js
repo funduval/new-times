@@ -9,15 +9,15 @@ render() {
 
 return (
 
-	<div className="row">
+
 
 
 		<div className="col-md-12" id="saved">
-		
+
 	              <h3>Saved Articles</h3>
 		</div>
 
-	</div>
+
 ); 
 
 } 

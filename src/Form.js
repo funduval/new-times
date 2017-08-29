@@ -4,31 +4,35 @@ import React from 'react';
 
 const Form = props => 
   
-      <div className="form-group">
+     
         <div className="col-md-12"  id="search">
         <h3>Enter A Search Below</h3>
+         <div className="form-group">
           <form className="form" >
             <input 
-              value={props.value}
-              name="topic"
               onChange={props.handleInputChange}
+              value={props.value}
+              data-topic={props.topic}
+              name="topic"
               type="text"
               placeholder="Topic"
             />
             <br/>
             <h4>Enter a date range:</h4>
             <input
-              value={props.value}
-              name="start"
               onChange={props.handleInputChange}
+              value={props.value}
+              data-start={props.start}
+              name="start"
               type="text"
               placeholder="From (YYYYMMDD)"
             />
             <br/>
             <input
               value={props.value}
-              name="end"
               onChange={props.handleInputChange}
+              data-end={props.end}
+              name="end"
               type="text"
               placeholder="To (YYYYMMDD)"
             />

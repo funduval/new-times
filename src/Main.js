@@ -1,7 +1,10 @@
 import React, { Component } from 'react'; 
  
 import './App.css'; 
-import Form from './Form.js';
+import Form from './Form.js'
+// import FormOne from './FormOne.js';
+// import FormTwo from './FormTwo.js';
+// import FormThree from './FormThree.js';
 import Results from './Results.js'
 import Saved from './Saved.js';
 import API from './API.js'
@@ -13,12 +16,18 @@ state = {
     topic: "",
     start:"",
     end:"",
+    search:"",
     result:{}
   };
 
+  
+
   searchArticles = query => {
-    API.search(this.topic, this.start, this.end)
-      .then(res => this.setState({ result: res.data }))
+
+  	query = "&q=" + this.state.topic + "&begin_date=" + this.state.start+ "&end_date=" + this.state.end + "&fl=headline%2C,web_url%2C"
+
+    API.search(query)
+      .then(res => this.setState({ result: res.data[0].response[0].docs[0]}))
       .catch(err => console.log(err));
   };
 
@@ -31,6 +40,7 @@ state = {
     this.setState({
       [name]: value
     });
+
   };
 
   handleFormSubmit = event => {
@@ -56,8 +66,10 @@ else if (patt.test(this.state.start)===false || patt.test(this.state.end)===fals
 }
     // Alert the user their first and last name, clear `this.state.firstName` and `this.state.lastName`, clearing the inputs
  else{  
+ 	
+   let query = "&q=" + this.state.topic + "&begin_date=" + this.state.start+ "&end_date=" + this.state.end + "&fl=headline%2C,web_url%2C"
 
-    this.searchArticles(this.state.topic, this.state.start, this.state.end);
+    this.searchArticles(this.state.search);
 
   alert(`Searching articles about ${this.state.topic}`);
 }
@@ -80,33 +92,36 @@ return (
 
 	<div className="row"> 
 
-		<div className="col-md-3" id="formArea">
-			  	<Form
-		        value={this.state.value}
-		        handleInputChange={this.handleInputChange}
-		        handleFormSubmit={this.handleFormSubmit}
-		              />
-		</div>
+	 
+
+					  	<Form
+
+					  	value={this.state.value}
+				        handleInputChange={this.handleInputChange}
+				        handleFormSubmit={this.handleFormSubmit}
+				        onClick={this.handleFormSubmit}
+				        data-topic={this.state.topic}
+				        data-start={this.state.start}
+				        data-end={this.state.end}
+				      
+				              />
+				       
+
+	</div>
 		  
-		<div className="col-md-9">
+		<div className="row">
 
 				<Results
-				link={this.state.result}
+				articles={this.state.result}
 				    />
-
 		</div>
-					       
-	</div>
 
+		<div className="row">				       
 
+	    	 <Saved /> 
 
-	     <Saved /> 
-
-
-    	
-    </div>
-
-
+	     </div>
+</div>
  
 ) 
 

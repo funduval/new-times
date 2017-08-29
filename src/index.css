@@ -14,16 +14,24 @@ body {
    -webkit-text-stroke-color: black;
 }
 
+body{
+
+	background-image: url('./nytimes-headquarters.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+}
+
 #search {
 	margin-top: 14px;
 	border-color: grey;
 	border-style: solid;
 	border-width: 4px;
-	margin-left:2%;
-	margin-right: 0px;
+	background-color: white;
+	
 
 }
-#sidebar {
+/*#sidebar {
 	margin-top: 14px;
 	border-color: grey;
 	border-style: solid;
@@ -31,7 +39,8 @@ body {
 	margin-left: 2%;
 	margin-right: 0px;
 
-}
+}*/
+
 #formArea{
 margin-left: 0px;
 
@@ -44,22 +53,23 @@ margin-left: 0px;
 	border-style: solid;
 	border-width: 4px;
 	margin-right: 0px;
-	margin-left: 5.6%;
+	background-color: white;
+	
 
 }
 
 #saved{
+	background-color: white;
 	margin-top: 14px;
-	margin-left:2.25%;
 	border-color: grey;
 	border-style: solid;
 	border-width: 4px;
-	margin-right: 0px;
+
 }
 
 .App-header{
 
-	background-image: url('./nytimes-headquarters.jpg');
+/*	background-image: url('./nytimes-headquarters.jpg');*/
 	height:360px;
 	border-bottom: solid grey;
 	border-bottom-width: 4px;
