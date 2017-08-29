@@ -1,29 +1,20 @@
-
-import React, { Component } from 'react'; 
-
+import React from "react";
 import './App.css'; 
 import './Main.js'; 
 
+//connect all this to SUBMIT button/page
+const Results = props =>
 
-class Results extends Component { 
+<div className= "col-md-12" id="results">
 
- 
+    <p>
 
-  render() {
-    return (
+    Here are the Results: {props.results}
+
+    </p>
    
-        
-          <div className= "col-md-5" id="results">
-
-             <h3>Search Results</h3>
-             
-          </div>
-       
-          
    
-    );
-  }
-}
 
+  </div>;
 
-export { Results as default };
+export default Results;
