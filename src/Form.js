@@ -1,7 +1,5 @@
 import React from 'react'; 
 
-
-
 const Form = props => 
         <div className="col-md-12"  id="search">
         <h3>Enter A Search Below</h3>
@@ -11,7 +9,6 @@ const Form = props =>
             <input 
               onChange={props.handleInputChange}
               value={props.topic}
-              // data-topic={props.topic}
               name="topic"
               type="text"
               placeholder="Topic"
@@ -21,7 +18,6 @@ const Form = props =>
             <input
               onChange={props.handleInputChange}
               value={props.start}
-              // data-start={props.start}
               name="start"
               type="text"
               placeholder="From (YYYYMMDD)"
@@ -30,7 +26,6 @@ const Form = props =>
             <input
               value={props.end}
               onChange={props.handleInputChange}
-              // data-end={props.end}
               name="end"
               type="text"
               placeholder="To (YYYYMMDD)"
@@ -40,10 +35,7 @@ const Form = props =>
             <button onClick={props.handleFormSubmit}>Submit</button>
           </form>
           <br/>
-        </div>
-                  
+        </div>               
       </div>;
- 
-
 
 export default Form;
