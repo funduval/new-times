@@ -13,21 +13,31 @@ class Main extends Component {
 
 
 state = {
-    topic: "",
-    start:"",
-    end:"",
-    search:"",
+    topic: "Armenia",
+    start:"19191212",
+    end:"19301212",
+    search: "",
     result:{}
   };
 
+ componentDidMount() {
+    this.searchArticles("&q=politics&begin_date=20170105&end_date=20170828&fl=headline%2C,web_url%2C");
+  }
   
 
-  searchArticles = query => {
+  searchArticles = () => {
 
-  	query = "&q=" + this.state.topic + "&begin_date=" + this.state.start+ "&end_date=" + this.state.end + "&fl=headline%2C,web_url%2C"
+  	const currQuery = "&q=" + this.state.topic + "&begin_date=" + this.state.start+ "&end_date=" + this.state.end + "&fl=headline%2C,web_url%2C"
 
-    API.search(query)
-      .then(res => this.setState({ result: res.data[0].response[0].docs[0]}))
+  	// query = "&q=" + this.state.topic + "&begin_date=" + this.state.start+ "&end_date=" + this.state.end + "&fl=headline%2C,web_url%2C"
+
+    console.log(currQuery)
+
+    API.search(currQuery)
+      .then(res => {
+        this.setState({ result: res.data.response.docs})
+        console.log(res)
+      })
       .catch(err => console.log(err));
   };
 
@@ -35,11 +45,19 @@ state = {
     // Getting the value and name of the input which triggered the change
     let value = event.target.value;
     const name = event.target.name;
+    // const data = event.target.data
+   
+  
+
 
     // Updating the input's state
     this.setState({
-      [name]: value
+      [name]: value,
+      // [data]: value,
+     
     });
+
+
 
   };
 
@@ -67,7 +85,7 @@ else if (patt.test(this.state.start)===false || patt.test(this.state.end)===fals
     // Alert the user their first and last name, clear `this.state.firstName` and `this.state.lastName`, clearing the inputs
  else{  
  	
-   let query = "&q=" + this.state.topic + "&begin_date=" + this.state.start+ "&end_date=" + this.state.end + "&fl=headline%2C,web_url%2C"
+   
 
     this.searchArticles(this.state.search);
 
@@ -78,6 +96,7 @@ else if (patt.test(this.state.start)===false || patt.test(this.state.end)===fals
       topic: "",
       start: "",
       end:"",
+      search:"",
       result:{}
     });
 
@@ -85,8 +104,9 @@ else if (patt.test(this.state.start)===false || patt.test(this.state.end)===fals
 
 
 render() { 
+  console.log(this.state);
+return (
 
-return ( 
 
 <div className="container">
 
@@ -95,14 +115,13 @@ return (
 	 
 
 					  	<Form
-
-					  	value={this.state.value}
+						value={this.state.value}
+					  	// value={this.state.search}
 				        handleInputChange={this.handleInputChange}
 				        handleFormSubmit={this.handleFormSubmit}
-				        onClick={this.handleFormSubmit}
-				        data-topic={this.state.topic}
-				        data-start={this.state.start}
-				        data-end={this.state.end}
+				       topic={this.state.topic}
+				       start={this.state.start}
+				      end={this.state.end}
 				      
 				              />
 				       
@@ -112,7 +131,7 @@ return (
 		<div className="row">
 
 				<Results
-				articles={this.state.result}
+				articles={this.state.result.headline}
 				    />
 		</div>
 
