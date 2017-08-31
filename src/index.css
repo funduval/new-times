@@ -4,6 +4,11 @@ body {
   font-family: sans-serif;
 }
 
+.panel-body{
+
+	text-align: left;
+}
+
 .appTitle{
 
 	margin-top: 14px;
@@ -14,8 +19,17 @@ body {
    -webkit-text-stroke-color: black;
 }
 
+
+
+.btn-primary{
+float:right;
+width:160px;
+
+}
+
 #resultWell{
 
+	margin-top: 15px;
 	text-align: left;
 }
 

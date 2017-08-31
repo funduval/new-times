@@ -85,12 +85,21 @@ else if (patt.test(this.state.start)===false || patt.test(this.state.end)===fals
 }
 
     this.setState({
-      topic: "",
-      start: "",
-      end:"",
-      search:"",
-      result1:[],
-      result2:[]
+    topic: "",
+    start: "",
+    end:"",
+    search:"",
+    article1:[],
+    article2:[],
+    article3:[],
+    article4:[],
+    article5:[],
+    link1:[],
+    link2:[],
+    link3:[],
+    link4:[],
+    link5:[],
+
     });
 
   };
